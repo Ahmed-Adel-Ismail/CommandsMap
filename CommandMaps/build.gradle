@@ -1,0 +1,12 @@
+apply plugin: 'java'
+group = 'com.github.Ahmed-Adel-Ismail'
+version = "0.0.1"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+

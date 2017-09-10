@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.Ahmed-Adel-Ismail'
+version = "0.0.1"
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+dependencies {
+    compile project (':CommandMaps')
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile group: 'com.squareup', name: 'javawriter', version: '2.1.1'
+}
