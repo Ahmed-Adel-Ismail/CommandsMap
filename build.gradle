@@ -28,3 +28,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+ext {
+    group = 'com.github.Ahmed-Adel-Ismail'
+}
