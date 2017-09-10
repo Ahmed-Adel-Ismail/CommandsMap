@@ -1,7 +1,9 @@
 # CommandsMap
-A library that helps avoiding the "switch/case" or "if/else" massive blocks through a table lookup technique, where every block of code is put in a separate method annotated with @Command annotation, this @Command annotation holds the key to lookup for this method in a "key/method" map ... if the value to look up for matches the mentioned key, the method is invoked ... all is done in compile time, no reflections used (except in one line regarding initializing the generated class, which can be done manually as well)
+
+A library that helps avoiding the "switch/case" or "if/else" massive blocks through a table lookup technique, where every block of code is put in a separate method annotated with @Command annotation, this @Command annotation holds the key to lookup for this method in a "key/method" map ... if the value to look up for matches the mentioned key, the method is invoked ... all is done in compile time, no reflections used
 
 # How to use
+
 Using the if/else style :
 
 
@@ -59,15 +61,18 @@ Using the CommandsMap :
         }
     }
     
-    now we have no if/else blocks, no big methods that keeps growing bigger, every block of code stays in a separate method
     
-    # How does things work
-    The CommandsMap is generated at Compile time, where the annotation-processor scans for classes with @CommandsMapFactory, and then it scans for methods with @Command annotation, then it generates a Map, where it's key is the Object set in the @Command annotation (like R.id.recyclerView), and the value mapped to this key is the method itself ...
+now we have no if/else blocks, no big methods that keeps growing bigger, every block of code stays in a separate method
     
-    when we invoke "commandsMap.execute(key, methodParameter)", it searches for the method mapped to the passed key, if found, it passes "methodParameter" to this method
+# How does things work
+
+The CommandsMap is generated at Compile time, where the annotation-processor scans for classes with @CommandsMapFactory, and then it scans for methods with @Command annotation, then it generates a Map, where it's key is the Object set in the @Command annotation (like R.id.recyclerView), and the value mapped to this key is the method itself ...
     
-    # No Reflections used
-    Every thing goes at compile time, only the method CommandsMap.of() uses reflections to find the generated class for you, which can be done manually as well ... a full example is as follows :
+when we invoke "commandsMap.execute(key, methodParameter)", it searches for the method mapped to the passed key, if found, it passes "methodParameter" to this method
+    
+# No Reflections used
+
+Every thing goes at compile time, only the method CommandsMap.of() uses reflections to find the generated class for you, which can be done manually as well ... a full example is as follows :
     
     
     @CommandsMapFactory
