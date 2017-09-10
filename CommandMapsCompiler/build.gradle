@@ -1,7 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.Ahmed-Adel-Ismail'
-version = "0.0.1"
 
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
