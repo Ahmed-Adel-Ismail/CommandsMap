@@ -132,6 +132,8 @@ Every thing goes at compile time, only the method CommandsMap.of() uses reflecti
             super.onDestroy();
         }
     }
+    
+This library is fully aplicabble with any Java Project, the examples are for Android Activity, but it can be done in any Java module as well 
 
 # Add Gradle Dependency
 
