@@ -153,3 +153,14 @@ Step 2. Add the dependency
     dependencies {
 	        compile 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
 	}
+
+# ProGuard
+
+for ProGuard you may need to add the following rules :
+
+	-dontwarn com.compiler.**
+	-dontwarn com.annotations.**
+	-dontwarn com.mapper.**
+	-dontwarn com.google.auto.**
+	-dontwarn com.google.common.**
+	-dontwarn com.squareup.javawriter.**
