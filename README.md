@@ -151,7 +151,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 	
     dependencies {
-	    compile 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
+	        compile 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
 		
 		// for Gradle 3+, instead of compile you can use :
 		implementation 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
