@@ -151,11 +151,8 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 	
     dependencies {
-	        compile 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
-		
-		// for Gradle 3+, instead of compile you can use :
-		implementation 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
-		annotationProcessor 'com.github.Ahmed-Adel-Ismail:CommandsMap:0.0.4'
+	    implementation 'com.github.Ahmed-Adel-Ismail.CommandsMap:CommandMaps:0.0.4'
+		annotationProcessor 'com.github.Ahmed-Adel-Ismail.CommandsMap:CommandMapsCompiler:0.0.4'
 	}
 
 # ProGuard
