@@ -21,9 +21,9 @@ import java.util.LinkedHashMap;
  */
 public class CommandsMap extends CommandsMapInitializer {
 
-    private Object commandsMapFactory;
     private final LinkedHashMap<Object, Command> commands = new LinkedHashMap<>();
     private final LinkedHashMap<Object, BiCommand> biCommands = new LinkedHashMap<>();
+    private Object commandsMapFactory;
 
     /**
      * set the instance that is annotated with {@link CommandsMapFactory}
@@ -69,11 +69,15 @@ public class CommandsMap extends CommandsMapInitializer {
      * @throws IllegalArgumentException if the key passed is not mapped to any methods (
      *                                  not mentioned in the {@link com.annotations.Command} annotation
      */
-    public final void execute(Object key, Object parameter)
-            throws IllegalArgumentException {
-        Command command = commands.get(key);
-        if (command != null) {
-            command.accept(parameter);
+    public final void execute(Object key, Object parameter) {
+        if (commands.containsKey(key)) {
+            commands.get(key).accept(parameter);
+        } else if (biCommands.containsKey(key)) {
+            try {
+                biCommands.get(key).accept(parameter, null);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         } else {
             System.err.println("no command assigned to the passed key " + key);
         }
@@ -88,11 +92,11 @@ public class CommandsMap extends CommandsMapInitializer {
      * @throws IllegalArgumentException if the key passed is not mapped to any methods (
      *                                  not mentioned in the {@link com.annotations.Command} annotation
      */
-    public final void execute(Object key, Object parameterOne, Object parameterTwo)
-            throws IllegalArgumentException {
-        BiCommand command = biCommands.get(key);
-        if (command != null) {
-            command.accept(parameterOne, parameterTwo);
+    public final void execute(Object key, Object parameterOne, Object parameterTwo) {
+        if (biCommands.containsKey(key)) {
+            biCommands.get(key).accept(parameterOne, parameterTwo);
+        } else if (commands.containsKey(key)) {
+            commands.get(key).accept(parameterOne);
         } else {
             System.err.println("no command assigned to the passed key " + key);
         }
